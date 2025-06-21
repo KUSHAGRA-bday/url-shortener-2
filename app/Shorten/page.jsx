@@ -1,0 +1,78 @@
+"use client"
+import { useState, useEffect } from 'react'
+import Link from 'next/link'
+
+const Shorten = () => {
+  const [url, seturl] = useState("")
+  const [ShortURL, setShortURL] = useState("")
+  const [generated, setGenerated] = useState("")
+  const [allUrls, setAllUrls] = useState([]) // New state
+
+  // Fetch all URLs from the API
+  const fetchAllUrls = async () => {
+    const res = await fetch('/api/urls')
+    const data = await res.json()
+    setAllUrls(data.urls)
+  }
+
+  useEffect(() => {
+    fetchAllUrls()
+  }, [])
+
+  const generate = async () => {
+    const myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    const raw = JSON.stringify({
+      "url": url,
+      "ShortURL": ShortURL
+    });
+
+    const requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      body: raw,
+      redirect: "follow"
+    };
+
+    fetch("/api/generate", requestOptions)
+      .then((response) => response.json())
+      .then((result) => {
+        setGenerated(`${process.env.NEXT_PUBLIC_HOST}/${ShortURL}`)
+        seturl("")
+        setShortURL("")
+        fetchAllUrls() // Refresh the list
+        console.log(result)
+        alert(result.message)
+      })
+      .catch((error) => console.error(error));
+  }
+
+  return (
+    <div className='mb-7'>
+      <main className='mx-auto max-w-lg bg-gradient-to-br from-purple-500 to-indigo-900 min-h-150 flex flex-col text-white p-5 rounded-lg shadow-lg mt-10 gap-3'>
+        <h1 className='text-3xl font-bold'>Generate your URLs here👇!!</h1>
+        <div className='flex flex-col gap-3'>
+          <b>Enter URL:</b> <input type="text" value={url} placeholder='Enter your URL here...' className='bg-white p-1 focus:outline-pink-600 rounded-md placeholder:text-gray-400 text-black' onChange={e => { seturl(e.target.value) }} />
+          <b>Enter preferred URL:</b> <input type="text" value={ShortURL} placeholder='Enter your preferred URL here...' className='bg-white focus:outline-pink-600 p-1 rounded-md placeholder:text-gray-400 text-black' onChange={e => { setShortURL(e.target.value) }} />
+          <button onClick={generate} className='bg-gradient-to-br from-purple-500 to-pink-900 text-white p-2 rounded-md cursor-pointer mx-45'>Generate</button>
+        </div>
+        <div className=' flex flex-col gap-3 justify-around text-lg mt-3 bg-blue-300 rounded-2xl p-3  '>
+            <div><h2 className='text-2xl font-bold'>All Short URLs:</h2></div>
+            <ul className='flex flex-col gap-2 '>
+              {allUrls.map((item, idx) => (
+                <li key={idx} className='flex justify-between items-center p-2 rounded-md shadow-md'>
+                  <div className='w-[50%] overflow-hidden'>{item.url} </div>
+                  <Link target='_blank' href={`${item.ShortURL}`} className='text-blue-600 hover:underline width-[50px] height-[50px] bg-zinc-100 rounded-md p-1 text-center'>
+                   {item.ShortURL}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+      </main>
+    </div>
+  )
+}
+
+export default Shorten
