@@ -1,6 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import Link from "next/link";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,20 +31,20 @@ export default function RootLayout({ children }) {
               © {new Date().getFullYear()} Kodrammer . All rights reserved.
             </p>
             <div className="flex space-x-4 mt-2 md:mt-0">
-              <a
+              <Link
                 href="https://github.com/KUSHAGRA-bday"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm hover:underline"
               >
                 GitHub
-              </a>
-              <a href="/privacy" className="text-sm hover:underline">
+              </Link>
+              <Link href="/privacy" className="text-sm hover:underline">
                 Privacy
-              </a>
-              <a href="/terms" className="text-sm hover:underline">
+              </Link>
+              <Link href="/terms" className="text-sm hover:underline">
                 Terms
-              </a>
+              </Link>
             </div>
           </div>
         </footer>
