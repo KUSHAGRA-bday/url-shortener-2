@@ -96,20 +96,19 @@ const Shorten = () => {
                 </Link>
                 <button
                   onClick={async () => {
-                    await fetch('/api/urls/delete', {
+                    const res = await fetch('/api/urls/delete', {
                       method: 'DELETE',
                       headers: { 'Content-Type': 'application/json' },
                       body: JSON.stringify({ ShortURL: item.ShortURL }),
                     });
                     const data = await res.json();
                     alert(data.message);
-                    fetchAllUrls(); // Refresh the list
+                    fetchAllUrls(); // Refresh the list without manual reload
                   }}
                   className="ml-3 px-2 py-1 bg-red-500 text-white rounded hover:bg-red-700 text-xs"
                 >
                   Delete
                 </button>
-
               </li>
             ))}
           </ul>
