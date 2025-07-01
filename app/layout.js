@@ -22,15 +22,19 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-gradient-to-br from-black  to-indigo-500`} >
-        <Navbar/>
+        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen w-full bg-gradient-to-br from-black to-indigo-500`}
+      >
+        <Navbar />
         {children}
-        <footer className="bg-gray-900 text-white w-full py-6 mt-8">
-          <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-3">
-            <p className="text-xs sm:text-sm text-center md:text-left">
-              © {new Date().getFullYear()} Kodrammer. All rights reserved.
+        <footer className="bg-gray-900 text-white w-full py-6 mt-10">
+          <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-4 flex-wrap">
+            {/* Left: Copyright */}
+            <p className="text-xs sm:text-sm">
+              © {new Date().getFullYear()} <strong>Kodrammer</strong>. All rights reserved.
             </p>
-            <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 mt-2 md:mt-0 items-center">
+
+            {/* Right: Links */}
+            <div className="flex gap-3 sm:gap-5 flex-wrap justify-center">
               <Link
                 href="https://github.com/KUSHAGRA-bday"
                 target="_blank"
