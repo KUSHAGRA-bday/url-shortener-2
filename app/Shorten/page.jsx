@@ -85,7 +85,7 @@ const Shorten = () => {
             {allUrls.map((item, idx) => (
               <li
                 key={idx}
-                className="flex justify-between items-center p-2 rounded-md shadow-md bg-white"
+                className="flex justify-between items-center p-2 rounded-md shadow-md bg-white hover:scale-110 transform duration-300"
               >
                 <Link
                   target="_blank"
