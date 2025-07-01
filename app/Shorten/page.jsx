@@ -83,19 +83,32 @@ const Shorten = () => {
           </h2>
           <ul className="flex flex-col gap-2">
             {allUrls.map((item, idx) => (
-              <Link
+
+              <li
+                key={idx}
+                className="flex justify-between items-center p-2 rounded-md shadow-md bg-white hover:scale-110 transform duration-300"
+              ><Link
                 target="_blank"
                 href={`${item.ShortURL}`}
                 className="text-blue-600 hover:underline break-all"
               >
-                <li
-                  key={idx}
-                  className="flex justify-between items-center p-2 rounded-md shadow-md bg-white hover:scale-110 transform duration-300"
-                >
-
                   {item.ShortURL}
-                </li>
-              </Link>
+                </Link>
+                <button
+                  onClick={async () => {
+                    await fetch('/api/urls/delete', {
+                      method: 'DELETE',
+                      headers: { 'Content-Type': 'application/json' },
+                      body: JSON.stringify({ ShortURL: item.ShortURL }),
+                    });
+                    fetchAllUrls(); // Refresh the list
+                  }}
+                  className="ml-3 px-2 py-1 bg-red-500 text-white rounded hover:bg-red-700 text-xs"
+                >
+                  Delete
+                </button>
+
+              </li>
             ))}
           </ul>
         </div>
