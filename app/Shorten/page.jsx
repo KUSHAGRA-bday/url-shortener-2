@@ -87,13 +87,14 @@ const Shorten = () => {
                 key={idx}
                 className="flex justify-between items-center p-2 rounded-md shadow-md bg-white hover:scale-110 transform duration-300"
               >
+                <label htmlFor={`url-${idx}`}>
                 <Link
                   target="_blank"
                   href={`${item.ShortURL}`}
                   className="text-blue-600 hover:underline break-all"
                 >
                   {item.ShortURL}
-                </Link>
+                </Link></label>
               </li>
             ))}
           </ul>
