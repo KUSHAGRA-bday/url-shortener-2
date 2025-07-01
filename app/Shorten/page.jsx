@@ -105,9 +105,9 @@ const Shorten = () => {
                     alert(data.message);
                     fetchAllUrls(); // Refresh the list without manual reload
                   }}
-                  className="ml-3 px-2 py-1 bg-red-500 text-white rounded hover:bg-red-700 text-xs"
+                  className="ml-3 px-2 py-1 text-white rounded hover:bg-red-700 text-xs"
                 >
-                  Delete
+                  ❎
                 </button>
               </li>
             ))}
