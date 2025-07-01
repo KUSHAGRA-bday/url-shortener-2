@@ -25,24 +25,24 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-gradient-to-br from-black  to-indigo-500`} >
         <Navbar/>
         {children}
-        <footer className="bg-gray-900 text-white w-full h-32">
-          <div className="max-w-6xl mx-auto px-6 py-6 flex flex-col md:flex-row justify-between items-center">
-            <p className="text-sm text-center md:text-left">
-              © {new Date().getFullYear()} Kodrammer . All rights reserved.
+        <footer className="bg-gray-900 text-white w-full py-6 mt-8">
+          <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-3">
+            <p className="text-xs sm:text-sm text-center md:text-left">
+              © {new Date().getFullYear()} Kodrammer. All rights reserved.
             </p>
-            <div className="flex space-x-4 mt-2 md:mt-0">
+            <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 mt-2 md:mt-0 items-center">
               <Link
                 href="https://github.com/KUSHAGRA-bday"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm hover:underline"
+                className="text-xs sm:text-sm hover:underline"
               >
                 GitHub
               </Link>
-              <Link href="/privacy" className="text-sm hover:underline">
+              <Link href="/privacy" className="text-xs sm:text-sm hover:underline">
                 Privacy
               </Link>
-              <Link href="/terms" className="text-sm hover:underline">
+              <Link href="/terms" className="text-xs sm:text-sm hover:underline">
                 Terms
               </Link>
             </div>
