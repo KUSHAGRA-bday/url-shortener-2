@@ -1,6 +1,8 @@
 "use client"
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
+
 
 const Shorten = () => {
   const [url, seturl] = useState("")
@@ -105,9 +107,14 @@ const Shorten = () => {
                     alert(data.message);
                     fetchAllUrls(); // Refresh the list without manual reload
                   }}
-                  className="ml-3 px-2 py-1 text-white rounded hover:bg-red-700 text-xs"
+                  className="ml-3 px-2 py-1 text-white rounded hover:scale-125 transform duration-300 cursor-pointer"
                 >
-                  ❎
+                  <Image
+                    src="/Screenshot 2025-07-02 011910.png"
+                    alt="delete"
+                    width={20}
+                    height={20}
+                  />
                 </button>
               </li>
             ))}
