@@ -56,7 +56,7 @@ const Shorten = () => {
             type="text"
             value={url}
             placeholder="Enter your URL here..."
-            className="bg-white w-full p-3 focus:outline-pink-500 rounded-md placeholder:text-gray-400 text-black"
+            className="bg-white w-full p-3 focus:outline-pink-500 rounded-md hover:scale-110 transform duration-300 placeholder:text-gray-400 text-black"
             onChange={e => seturl(e.target.value)}
           />
 
@@ -65,7 +65,7 @@ const Shorten = () => {
             type="text"
             value={ShortURL}
             placeholder="Enter your preferred URL here..."
-            className="bg-white w-full p-3 focus:outline-pink-500 rounded-md placeholder:text-gray-400 text-black"
+            className="bg-white w-full p-3 focus:outline-pink-500 rounded-md hover:scale-110 transform duration-300 placeholder:text-gray-400 text-black"
             onChange={e => setShortURL(e.target.value)}
           />
 
@@ -77,7 +77,7 @@ const Shorten = () => {
           </button>
         </div>
 
-        <div className="flex flex-col gap-3 justify-around text-base sm:text-lg mt-6 bg-blue-300 rounded-2xl p-4 text-black">
+        <div className="flex flex-col gap-3 justify-around text-base sm:text-lg mt-6 bg-blue-300 rounded-2xl p-4 text-white">
           <h2 className="text-xl sm:text-2xl font-bold transform hover:scale-105 duration-300 ease-in-out">
             All Short URLs:
           </h2>
