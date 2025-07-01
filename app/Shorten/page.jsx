@@ -101,6 +101,8 @@ const Shorten = () => {
                       headers: { 'Content-Type': 'application/json' },
                       body: JSON.stringify({ ShortURL: item.ShortURL }),
                     });
+                    const data = await res.json();
+                    alert(data.message);
                     fetchAllUrls(); // Refresh the list
                   }}
                   className="ml-3 px-2 py-1 bg-red-500 text-white rounded hover:bg-red-700 text-xs"
