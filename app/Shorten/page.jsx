@@ -90,7 +90,7 @@ const Shorten = () => {
                 <Link
                   target="_blank"
                   href={`${item.ShortURL}`}
-                  className="text-blue-600 hover:underline break-all"
+                  className="text-blue-600 hover:underline hover:scale-110 transform duration-300 break-all"
                 >
                   {item.ShortURL}
                 </Link>
