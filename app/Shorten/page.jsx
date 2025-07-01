@@ -83,17 +83,18 @@ const Shorten = () => {
           </h2>
           <ul className="flex flex-col gap-2">
             {allUrls.map((item, idx) => (
-              <label htmlFor={`url-${idx}`} key={idx}><li
+              <li
+                key={idx}
                 className="flex justify-between items-center p-2 rounded-md shadow-md bg-white hover:scale-110 transform duration-300"
               >
                 <Link
                   target="_blank"
                   href={`${item.ShortURL}`}
-                  className="text-blue-600 hover:underline hover:scale-110 transform duration-300 break-all"
+                  className="text-blue-600 hover:underline break-all"
                 >
                   {item.ShortURL}
                 </Link>
-              </li></label>
+              </li>
             ))}
           </ul>
         </div>
