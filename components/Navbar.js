@@ -7,7 +7,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
         {/* Logo */}
         <Link href="/">
-          <h1 className="text-2xl font-bold hover:scale-110 transform duration-300">URL-Shortener</h1>
+          <h1 className="text-2xl font-bold hover:scale-110 transform duration-300">Public URL-Shortener</h1>
         </Link>
 
         {/* Navigation Links */}
