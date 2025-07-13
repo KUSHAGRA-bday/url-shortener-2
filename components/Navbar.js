@@ -1,13 +1,13 @@
 import Link from 'next/link'
 import React from 'react'
-
+import Image from 'next/image'
 const Navbar = () => {
   return (
     <nav className="bg-gradient-to-br from-pink-800 to-indigo-900 text-zinc-300 rounded-4xl mx-4 my-5 px-4 py-4 md:py-6">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
         {/* Logo */}
         <Link href="/">
-          <h1 className="text-2xl font-bold hover:scale-110 transform duration-300 text-shadow-fuchsia-700">Public URL-Shortener</h1>
+          <h1 className="text-2xl font-bold hover:scale-110 transform duration-300 text-shadow-fuchsia-700"><Image src="/URL Shortener logo.png" alt="Logo" width={40} height={40} /> Public URL-Shortener</h1>
         </Link>
 
         {/* Navigation Links */}
