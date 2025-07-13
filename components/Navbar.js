@@ -6,7 +6,7 @@ const Navbar = () => {
     <nav className="bg-gradient-to-br from-pink-800 to-indigo-900 text-zinc-300 rounded-4xl mx-4 my-5 px-4 py-4 md:py-6">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
         {/* Logo */}
-        <Link href="/">
+        <Link href="/" className="flex items-center gap-2">
           <Image src="/URL shortener logo.png" alt="Logo" width={40} height={40} className="rounded-xl"/><span className="text-2xl font-bold hover:scale-110 transform duration-300 text-shadow-fuchsia-700"> Public URL-Shortener</span>
         </Link>
 
